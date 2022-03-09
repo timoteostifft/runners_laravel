@@ -23,4 +23,17 @@ class RunnerController extends Controller
             return response()->json(["Erro ao listar corredores. Erro: {$error}"],500);
         }
     }
+
+    public function register(Request $request){
+
+        $data = 'request';
+
+        try{
+            return response()->json([
+                $this->service->register($data)
+            ],201);
+        } catch (\Throwable$error){
+            return response()->json(["Erro ao cadastrar corredor. Erro: {$error}"],500);
+        }
+    }
 }
