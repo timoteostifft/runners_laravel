@@ -16,12 +16,11 @@ class RunnerController extends Controller
 
     public function list(Request $request){
         try{
-            $id = 'teste';
             return response()->json([
-                $this->service->register($id)
-            ]);
+                $this->service->list()
+            ],201);
         } catch (\Throwable$error){
-            return response()->json(["Erro ao cadastrar usuário. Erro: {$error}"]);
+            return response()->json(["Erro ao listar corredores. Erro: {$error}"],500);
         }
     }
 }
