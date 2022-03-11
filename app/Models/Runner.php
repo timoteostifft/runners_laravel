@@ -16,14 +16,6 @@ class Runner extends Model
     'birth'
   ];
 
-  public function register(array $data){
-    $sql = self::insert([
-      'name' => $data['name'],
-      'cpf' => $data['cpf'],
-      'birth' => $data['birth']
-    ]);
-  }
-
   public function remove(string $id)
   {
     self::where('id', $id)->delete();
