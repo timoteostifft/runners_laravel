@@ -1,17 +1,29 @@
 <?php
 
 namespace App\Services;
-use App\Repositories\RunnerRepository;
+use App\Repositories\TestRepository;
 
-class RunnerService{
+class TestService{
 
   protected $testRepository;
 
-  public function __construct(TestRepository $runnerRepository){
+  public function __construct(TestRepository $testRepository)
+  {
     $this->testRepository = $testRepository;
   }
 
-  public function list(){
+  public function list()
+  {
     return $this->testRepository->list();
+  }
+
+  public function register(array $data)
+  {
+    return $this->testRepository->register($data);
+  }
+
+  public function remove($id)
+  {
+    return $this->testRepository->remove($id);
   }
 }
