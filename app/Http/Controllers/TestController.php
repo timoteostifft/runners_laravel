@@ -35,5 +35,13 @@ class TestController extends Controller
     }
 
 
-    public function remove(){}
+    public function remove(Request $request)
+    {
+      try{
+        $deleted = $this->service->remove($request->route('id'));
+        return response()->json($deleted,Response::HTTP_OK);
+      } catch (\Throwable$error){
+        return response()->json("Erro ao cadastrar corredor. Erro: {$error}",Response::HTTP_INTERNAL_SERVER_ERROR);
+      }
+    }
 }
