@@ -7,16 +7,28 @@ class RunnerService{
 
   protected $runnerRepository;
 
-  public function __construct(RunnerRepository $runnerRepository){
+  public function __construct(RunnerRepository $runnerRepository)
+  {
     $this->runnerRepository = $runnerRepository;
   }
 
-  public function list(){
+  public function list()
+  {
     return $this->runnerRepository->list();
   }
 
-  public function register(mixed $data){
-    return $this->runnerRepository->register();
+  public function register(array $data)
+  {
+    return $this->runnerRepository->register($data);
   }
 
+  public function remove($id)
+  {
+    return $this->runnerRepository->remove($id);
+  }
+
+  public function findbyDate($date)
+  {
+    return $this->runnerRepository->findbyDate($date);
+  }
 }
