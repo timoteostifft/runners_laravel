@@ -7,18 +7,25 @@ use DB;
 
 class Runner extends Model
 {
+  // protected $table = 'runners';
+  public $timestamps = false;
   protected $connection = 'sqlite';
-  protected $table = 'runners';
+  protected $fillable = [
+    'name',
+    'cpf',
+    'birth'
+  ];
 
-  public function list(){
-    dd('database');
-  }
-
-  public function register(mixed $data){
+  public function register(array $data){
     $sql = self::insert([
       'name' => $data['name'],
       'cpf' => $data['cpf'],
-      'percent' => $data['percent']
+      'birth' => $data['birth']
     ]);
+  }
+
+  public function remove(string $id)
+  {
+    self::where('id', $id)->delete();
   }
 }
