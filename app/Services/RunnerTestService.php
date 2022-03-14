@@ -12,15 +12,14 @@ class RunnerTestService{
     $this->runnerTestRepository = $runnerTestRepository;
   }
 
-  public function list(array $data)
+  public function list($testId, $runnerId)
   {
-    return dd($data);
-    // return $this->runnerTestRepository->list();
+    return $this->runnerTestRepository->list($testId, $runnerId);
   }
 
-  public function register(array $data)
+  public function register($testId, $runnerId)
   {
-    return $this->runnerTestRepository->register($data);
+    return $this->runnerTestRepository->register($testId, $runnerId);
   }
 
   public function remove($id)
