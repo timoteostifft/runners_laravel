@@ -14,7 +14,12 @@ class TestService{
 
   public function list()
   {
-    return $this->testRepository->list();
+    $data =  $this->testRepository->list();
+    foreach ($data as $test){
+      $runners = $this->testRepository->getRunners($test->id);
+      $test->runners = $runners;
+    }
+    return($data);
   }
 
   public function register(array $data)
