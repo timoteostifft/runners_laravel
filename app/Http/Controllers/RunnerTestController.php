@@ -18,8 +18,8 @@ class RunnerTestController extends Controller
   public function list(Request $request, $testId, $runnerId)
   {
     try{
-      $runnersTestsList = $this->service->list($testId, $runnerId);
-      return response()->json($runnersTestsList,Response::HTTP_OK);
+      $list = $this->service->list($testId, $runnerId);
+      return response()->json($list,Response::HTTP_OK);
     } catch (\Throwable$error){
       return response()->json("Erro ao listar inscritos em provas. Erro: {$error}",Response::HTTP_INTERNAL_SERVER_ERROR);
     }
@@ -28,15 +28,20 @@ class RunnerTestController extends Controller
   public function register(Request $request, $testId, $runnerId)
   {
     try{
-      $runnersTestsRegistered = $this->service->register($testId, $runnerId);
-      return response()->json($runnersTestsRegistered,Response::HTTP_OK);
+      $registered = $this->service->register($testId, $runnerId);
+      return response()->json($registered,Response::HTTP_OK);
     } catch (\Throwable$error){
       return response()->json("Erro ao inscrever corredor em prova. Erro: {$error}",Response::HTTP_INTERNAL_SERVER_ERROR);
     }
   }
 
-  public function remove($testId, $runenrId)
+  public function remove(Request $request, $testId, $runnerId)
   {
-    echo $testId .'-'. $runenrId;
+    try{
+      $removed = $this->service->remove($testId, $runnerId);
+      return response()->json($removed,Response::HTTP_OK);
+    } catch (\Throwable$error){
+      return response()->json("Erro ao remover corredor de prova. Erro: {$error}",Response::HTTP_INTERNAL_SERVER_ERROR);
+    }
   }
 }
