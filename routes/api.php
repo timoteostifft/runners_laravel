@@ -8,11 +8,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //runners routes
-Route::get('/home','App\Http\Controllers\RunnerController@list');
-Route::post('/home','App\Http\Controllers\RunnerController@register');
-Route::delete('/home/{id}', 'App\Http\Controllers\RunnerController@remove');
+Route::get('/home/runners/list','App\Http\Controllers\RunnerController@list');
+Route::post('/home/runners/add','App\Http\Controllers\RunnerController@register');
+Route::delete('/home/runners/remove/{id}', 'App\Http\Controllers\RunnerController@remove');
 
 //tests routes
-Route::get('/home/tests','App\Http\Controllers\TestController@list');
-Route::post('/home/tests','App\Http\Controllers\TestController@register');
-Route::delete('/home/test/{id}', 'App\Http\Controllers\TestController@remove');
+Route::get('/home/tests/list','App\Http\Controllers\TestController@list');
+Route::post('/home/tests/add','App\Http\Controllers\TestController@register');
+Route::delete('/home/tests/remove/{id}', 'App\Http\Controllers\TestController@remove');
+
+//runners|tests routes
+Route::get('/home/tests/list/{idTest}/{idRunner}','App\Http\Controllers\RunnerTestController@list');
+Route::post('/home/tests/add/{idTest}/{idRunner}','App\Http\Controllers\RunnerTestController@register');
+Route::delete('/home/tests/remove/{testId}/{runnerId}','App\Http\Controllers\RunnerTestController@remove');
