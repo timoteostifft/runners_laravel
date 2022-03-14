@@ -27,4 +27,8 @@ class TestRepository
     $this->model->remove($id);
     return $sql;
   }
+
+  public function getRunners($testId){
+    return $this->model->getRunners($testId);
+  }
 }
