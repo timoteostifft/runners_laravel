@@ -22,9 +22,9 @@ class RunnerTestService{
     return $this->runnerTestRepository->register($testId, $runnerId);
   }
 
-  public function remove($id)
+  public function remove($testId, $runnerId)
   {
-    return $this->runnerTestRepository->remove($id);
+    return $this->runnerTestRepository->remove($testId, $runnerId);
   }
 
   public function findbyDate($date)
