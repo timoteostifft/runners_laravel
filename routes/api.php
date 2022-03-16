@@ -21,3 +21,6 @@ Route::delete('/home/tests/remove/{testId}', 'App\Http\Controllers\TestControlle
 Route::get('/home/tests/list/{idTest}/{idRunner}','App\Http\Controllers\RunnerTestController@list');
 Route::post('/home/tests/add/{idTest}/{idRunner}','App\Http\Controllers\RunnerTestController@register');
 Route::delete('/home/tests/remove/{testId}/{runnerId}','App\Http\Controllers\RunnerTestController@remove');
+
+//insert results
+Route::post('/home/tests/setResult/{testId}/{runnerId}', 'App\Http\Controllers\RunnerTestController@setResult');
