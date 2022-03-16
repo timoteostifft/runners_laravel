@@ -26,9 +26,28 @@ class RunnerTestRepository
     ]);
   }
 
-  public function remove($testId, $runnerId){
+  public function remove($testId, $runnerId)
+  {
     $sql = $this->model->where('test_id','=',$testId)->where('runner_id','=',$runnerId)->get();
     $this->model->where('test_id','=',$testId)->where('runner_id','=',$runnerId)->delete();
     return $sql;
+  }
+
+  public function setResult($data, $testId, $runnerId)
+  {
+    $sql = $this->model
+      ->where('test_id','=',$testId)
+      ->where('runner_id','=',$runnerId)
+      ->update(['kickoff' => $data->kickoff]);
+
+      $sql = $this->model
+      ->where('test_id','=',$testId)
+      ->where('runner_id','=',$runnerId)
+      ->update(['finish' => $data->finish]);
+
+      return $sql = $this->model
+        ->where('test_id','=',$testId)
+        ->where('runner_id','=',$runnerId)
+        ->get();
   }
 }
