@@ -10,7 +10,7 @@ class RunnerTest extends Model
   public $timestamps = false;
 
   protected $table = 'runners_tests';
-  protected $connection = 'sqlite';
+  protected $connection = 'mysql';
   protected $fillable = [
     'runner_id',
     'test_id'
