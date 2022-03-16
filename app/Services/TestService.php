@@ -12,15 +12,18 @@ class TestService{
     $this->testRepository = $testRepository;
   }
 
-  public function list()
+  public function listByAge()
   {
     $data =  $this->testRepository->list();
     foreach ($data as $test){
-      $runners = $this->testRepository->getRunners($test->id);
+      $runners = $this->testRepository->getRunnersByAge($test->id);
       $test->runners = $runners;
     }
+
     return($data);
   }
+
+  
 
   public function register(array $data)
   {
