@@ -24,6 +24,15 @@ class TestController extends Controller
       }
     }
 
+    public function listByResult()
+    {
+      try{
+        $testsList = $this->service->listByResult();
+        return response()->json($testsList,Response::HTTP_OK);
+      } catch (\Throwable$error){
+        return response()->json("Erro ao listar provas por resultado. {$error}", Response::HTTP_INTERNAL_SERVER_ERROR);
+      }
+    }
 
     public function register(Request $request)
     {
