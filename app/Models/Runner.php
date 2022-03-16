@@ -9,7 +9,7 @@ class Runner extends Model
 {
   // protected $table = 'runners';
   public $timestamps = false;
-  protected $connection = 'sqlite';
+  // protected $connection = 'mysql';
   protected $fillable = [
     'name',
     'cpf',
