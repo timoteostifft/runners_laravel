@@ -10,7 +10,7 @@ use DB;
 class Test extends Model
 {
   public $timestamps = false;
-  protected $connection = 'sqlite';
+  protected $connection = 'mysql';
   protected $fillable = [
     'type',
     'date',
