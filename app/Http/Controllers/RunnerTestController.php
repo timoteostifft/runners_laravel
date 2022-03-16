@@ -47,7 +47,6 @@ class RunnerTestController extends Controller
 
   public function setResult(Request $request, $testId, $runnerId)
   {
-    // dd($request->kickoff);
     try{
       $result = $this->service->setResult($request, $testId, $runnerId);
       return response()->json($testId, Response::HTTP_OK);
