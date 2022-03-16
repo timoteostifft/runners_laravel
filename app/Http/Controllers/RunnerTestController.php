@@ -44,4 +44,15 @@ class RunnerTestController extends Controller
       return response()->json("Erro ao remover corredor de prova. Erro: {$error}",Response::HTTP_INTERNAL_SERVER_ERROR);
     }
   }
+
+  public function setResult(Request $request, $testId, $runnerId)
+  {
+    // dd($request->kickoff);
+    try{
+      $result = $this->service->setResult($request, $testId, $runnerId);
+      return response()->json($testId, Response::HTTP_OK);
+    } catch (\Throwable$error){
+      return response()->json("Error ao atualizar resultado de prova. Erro: {$error}", Response::HTTP_INTERNAL_SERVER_ERROR);
+    }
+  }
 }
