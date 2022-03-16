@@ -13,7 +13,6 @@ Route::post('/home/runners/add','App\Http\Controllers\RunnerController@register'
 Route::delete('/home/runners/remove/{id}', 'App\Http\Controllers\RunnerController@remove');
 
 //tests routes
-Route::get('/home/tests/list','App\Http\Controllers\TestController@list');
 Route::post('/home/tests/add','App\Http\Controllers\TestController@register');
 Route::delete('/home/tests/remove/{testId}', 'App\Http\Controllers\TestController@remove');
 
@@ -24,3 +23,9 @@ Route::delete('/home/tests/remove/{testId}/{runnerId}','App\Http\Controllers\Run
 
 //insert results
 Route::post('/home/tests/setResult/{testId}/{runnerId}', 'App\Http\Controllers\RunnerTestController@setResult');
+
+//list tests by age
+Route::get('/home/tests/listByAge','App\Http\Controllers\TestController@listByAge');
+
+//list tests by result
+Route::get('/home/tests/listByResult','App\Http\Controllers\TestController@listByResult');
