@@ -27,8 +27,8 @@ class RunnerTestService{
     return $this->runnerTestRepository->remove($testId, $runnerId);
   }
 
-  public function findbyDate($date)
+  public function setResult($data, $testId, $runnerId)
   {
-    return $this->runnerTestRepository->findbyDate($date);
+    return $this->runnerTestRepository->setResult($data, $testId, $runnerId);
   }
 }
