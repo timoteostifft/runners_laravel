@@ -31,4 +31,9 @@ class TestRepository
   public function getRunnersByAge($testId){
     return $this->model->getRunnersByAge($testId);
   }
+
+  public function getRunnersByResult($testId)
+  {
+    return $this->model->getRunnersByResult($testId);
+  }
 }
