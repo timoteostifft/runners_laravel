@@ -28,7 +28,7 @@ class TestRepository
     return $sql;
   }
 
-  public function getRunners($testId){
-    return $this->model->getRunners($testId);
+  public function getRunnersByAge($testId){
+    return $this->model->getRunnersByAge($testId);
   }
 }
