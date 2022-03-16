@@ -14,15 +14,16 @@ class TestController extends Controller
       $this->service = $service;
     }
 
-    public function list()
+    public function listByAge()
     {
       try{
-        $testsList = $this->service->list();
+        $testsList = $this->service->listByAge();
         return response()->json($testsList,Response::HTTP_OK);
       } catch (\Throwable$error){
         return response()->json("Erro ao listar provas. Erro: {$error}",Response::HTTP_INTERNAL_SERVER_ERROR);
       }
     }
+
 
     public function register(Request $request)
     {
