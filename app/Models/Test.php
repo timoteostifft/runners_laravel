@@ -56,7 +56,24 @@ class Test extends Model
 
   public function getRunnersByResult($testId)
   {
-    $sql = DB::select('select runners.id, runners.name, runners.cpf, runners.birth, TIMEDIFF(runners_tests.finish, runners_tests.kickoff) AS time from runners, runners_tests where runners.id = runners_tests.runner_id and runners_tests.test_id = ? order by time',[$testId]);
+
+    $sql = DB::select('SELECT
+                        runners.*,
+                        TIMEDIFF(runners_tests.finish, runners_tests.kickoff) as time
+                      FROM
+                        runners
+                      JOIN
+                        runners_tests ON
+                        (
+                        runners.id = runners_tests.runner_id 
+                        )
+                      WHERE
+                        runners_tests.test_id = ?
+                      ORDER BY
+                        time',[$testId]);
+
+    //old list method
+    //$sql = DB::select('select runners.id, runners.name, runners.cpf, runners.birth, TIMEDIFF(runners_tests.finish, runners_tests.kickoff) AS time from runners, runners_tests where runners.id = runners_tests.runner_id and runners_tests.test_id = ? order by time',[$testId]);
 
     return($sql);
   }
