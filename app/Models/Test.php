@@ -28,9 +28,7 @@ class Test extends Model
     
   $sql = DB::select("SELECT 
                       runners.*,
-                      DATE_FORMAT(FROM_DAYS(DATEDIFF(now(), runners.birth)), '%Y')+0 AS age,
-                      runners_tests.id as 'runner_tests_id',
-                      runners_tests.test_id
+                      DATE_FORMAT(FROM_DAYS(DATEDIFF(now(), runners.birth)), '%Y')+0 AS age
                     FROM 
                       runners
                     JOIN	
