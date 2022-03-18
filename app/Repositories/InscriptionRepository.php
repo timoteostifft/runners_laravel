@@ -12,8 +12,18 @@ class InscriptionRepository
     $this->model = $model;
   }
 
-  public function isRunnerAlreadyOnATestToday()
+  public function isRunnerAlreadyOnATestToday($testId, $runnerId)
   {
-    return true;
+    $date = $this->model->getTestDate($testId);
+    $sql = $this->model->isRunnerAlreadyOnATestToday($runnerId);
+
+    foreach($sql as $day)
+    {
+      if($day == $date[0])
+      {
+        return true;
+      }
+    }
+    return false;
   }
 }
