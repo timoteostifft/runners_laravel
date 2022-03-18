@@ -19,7 +19,11 @@ class RunnerService{
 
   public function register(array $data)
   {
-    return $this->runnerRepository->register($data);
+    if ($this->isRunnerOlderThan18($data))
+    {
+      return $this->runnerRepository->register($data);
+    }
+    return 'Não é possível cadastrar um menor de idade.';
   }
 
   public function remove($id)
@@ -30,5 +34,19 @@ class RunnerService{
   public function findbyDate($date)
   {
     return $this->runnerRepository->findbyDate($date);
+  }
+
+  private function isRunnerOlderThan18($data)
+  {
+    $currentDate = date("Y-m-d");
+
+    $age = date_diff(date_create($data['birth']), date_create($currentDate));
+
+    if($age->y <18)
+    {
+      return false;
+    }
+
+    return true;
   }
 }
