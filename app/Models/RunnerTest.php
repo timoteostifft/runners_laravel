@@ -15,4 +15,32 @@ class RunnerTest extends Model
     'runner_id',
     'test_id'
   ];
+
+  public function getTestDate($testId)
+  {
+    $date = DB::select("SELECT 
+                  tests.date
+                FROM
+                  tests
+                WHERE
+                  tests.id = ?",[$testId]);
+    return $date;
+  }
+
+  public function isRunnerAlreadyOnATestToday($runnerId)
+  {
+    $sql = DB::select("SELECT 
+                  tests.date
+                FROM
+                  tests
+                JOIN
+                  runners_tests ON
+                  (
+                    tests.id = runners_tests.test_id 
+                  )
+                WHERE
+                  runners_tests.runner_id = ?",[$runnerId]);
+
+    return $sql;
+  }
 }
