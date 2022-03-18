@@ -21,7 +21,7 @@ class RunnerTestService{
 
   public function register($testId, $runnerId)
   {
-    if (!$this->inscriptionRepository->isRunnerAlreadyOnATestToday())
+    if (!$this->inscriptionRepository->isRunnerAlreadyOnATestToday($testId, $runnerId))
     {
       return $this->runnerTestRepository->register($testId, $runnerId);
     }
