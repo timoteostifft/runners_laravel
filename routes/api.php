@@ -8,24 +8,24 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //runners routes
-Route::get('/home/runners/list','App\Http\Controllers\RunnerController@list');
-Route::post('/home/runners/add','App\Http\Controllers\RunnerController@register');
-Route::delete('/home/runners/remove/{id}', 'App\Http\Controllers\RunnerController@remove');
+Route::get('/runners/list','App\Http\Controllers\RunnerController@list');
+Route::post('/runners/add','App\Http\Controllers\RunnerController@register');
+Route::delete('/runners/remove/{id}', 'App\Http\Controllers\RunnerController@remove');
 
 //tests routes
-Route::post('/home/tests/add','App\Http\Controllers\TestController@register');
-Route::delete('/home/tests/remove/{testId}', 'App\Http\Controllers\TestController@remove');
+Route::post('/tests/add','App\Http\Controllers\TestController@register');
+Route::delete('/tests/remove/{testId}', 'App\Http\Controllers\TestController@remove');
 
 //runners|tests routes
-Route::get('/home/tests/list/{idTest}/{idRunner}','App\Http\Controllers\RunnerTestController@list');
-Route::post('/home/tests/add/{idTest}/{idRunner}','App\Http\Controllers\RunnerTestController@register');
-Route::delete('/home/tests/remove/{testId}/{runnerId}','App\Http\Controllers\RunnerTestController@remove');
+Route::get('/tests/list/{idTest}/{idRunner}','App\Http\Controllers\RunnerTestController@list');
+Route::post('/tests/add/{idTest}/{idRunner}','App\Http\Controllers\RunnerTestController@register');
+Route::delete('/tests/remove/{testId}/{runnerId}','App\Http\Controllers\RunnerTestController@remove');
 
 //insert results
-Route::post('/home/tests/setResult/{testId}/{runnerId}', 'App\Http\Controllers\RunnerTestController@setResult');
+Route::post('/tests/setResult/{testId}/{runnerId}', 'App\Http\Controllers\RunnerTestController@setResult');
 
 //list tests by age
-Route::get('/home/tests/listByAge','App\Http\Controllers\TestController@listByAge');
+Route::get('tests/listByAge','App\Http\Controllers\TestController@listByAge');
 
 //list tests by result
-Route::get('/home/tests/listByResult','App\Http\Controllers\TestController@listByResult');
+Route::get('/tests/listByResult','App\Http\Controllers\TestController@listByResult');
