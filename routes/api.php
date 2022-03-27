@@ -14,7 +14,7 @@ Route::delete('/runners/remove/{id}', 'App\Http\Controllers\RunnerController@rem
 
 //tests routes
 Route::post('/tests/add','App\Http\Controllers\TestController@register');
-Route::delete('/tests/remove/{testId}', 'App\Http\Controllers\TestController@remove');
+Route::delete('/tests/remove/{id}', 'App\Http\Controllers\TestController@remove');
 
 //runners|tests routes
 Route::get('/tests/list/{idTest}/{idRunner}','App\Http\Controllers\RunnerTestController@list');
